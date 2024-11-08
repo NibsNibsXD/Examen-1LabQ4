@@ -7,6 +7,40 @@
  *
  * @author Jorge Aguirre
  */
-public class RentItem {
-    
+public abstract class RentItem {
+    // Atributos
+    private String codigoItem;
+    private String nombreItem;
+    private double precioRentaItem;
+    private int cantidadCopias;
+
+    // Constructor
+    public RentItem(String codigoItem, String nombreItem, double precioRentaItem) {
+        this.codigoItem = codigoItem;
+        this.nombreItem = nombreItem;
+        this.precioRentaItem = precioRentaItem;
+        this.cantidadCopias = 0; // Se inicializa en 0
+    }
+
+    //toString
+    @Override
+    public String toString() {
+        return "Código de Item: " + codigoItem + ", Nombre de Item: " + nombreItem + ", Precio de Renta: " + precioRentaItem;
+    }
+
+    // Método abstracto pagoRenta
+    public abstract double pagoRenta(int dias);
+
+    // Métodos get para los 3 atributos
+    public String getCodigoItem() {
+        return codigoItem;
+    }
+
+    public String getNombreItem() {
+        return nombreItem;
+    }
+
+    public double getPrecioRentaItem() {
+        return precioRentaItem;
+    }
 }
